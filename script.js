@@ -8,18 +8,42 @@ Date: 12/05/2021
 // function for the computer to return rock, paper or scissors
 function computerPlay() {
     // have an array with options
-    let options = ["Rock", "Paper", "Scissors"];
+    let options = ["rock", "paper", "scissors"];
     // use Math.random and Math.floor to select one at random and return the selected option
     return options[Math.floor(Math.random() * 3)];
     
 }
 
-console.log(computerPlay());
+//console.log(computerPlay()); test output
 
-// function to play a single round
-function singleRound(playerSection, computerSelection) {
+// function to play a single round against the computer
+function singleRound(playerSelection, computerSelection) {
+    // temp vairable needed for test
 
+    // if computer and players choice is the same == draw
+    if (playerSelection === computerSelection) {
+        return "Draw";
+    }
+    // else if paper beats rock
+    else if (playerSelection == "paper" && computerSelection == "rock") {
+        return "Player wins! Paper beats rock";
+    }
+
+    // else if rock beats scissors 
+    else if (playerSelection == "rock" && computerSelection == "scissors") {
+        return "Player wins! Rock beats scissors";
+    }
+    // else if scissors beats paper
+    else if (playerSelection == "scissors" && computerSelection == "paper") {
+        return "Player wins! Scissors beats paper";
+    }
+    // otherwise computer wins
+    else {
+        return "Computer wins! " + computerSelection + " beats " + playerSelection;
+    }
 }
+
+//console.log(singleRound("paper", computerPlay())); test
 
 // function to play 5 rounds of the game
 function game () {
