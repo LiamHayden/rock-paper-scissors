@@ -14,12 +14,8 @@ function computerPlay() {
     
 }
 
-//console.log(computerPlay()); test output
-
 // function to play a single round against the computer
 function singleRound(playerSelection, computerSelection) {
-    // temp vairable needed for test
-
     // if computer and players choice is the same == draw
     if (playerSelection === computerSelection) {
         return "Draw";
@@ -43,9 +39,20 @@ function singleRound(playerSelection, computerSelection) {
     }
 }
 
-//console.log(singleRound("paper", computerPlay())); test
-
 // function to play 5 rounds of the game
 function game () {
+    // Use a for loop to loop through the singleRound function. Also get users input for each round
+    for (i = 0; i < 5; i++) {
+        let playerSelection;
+        // Get users choice
+        do {
+            playerSelection = prompt("Choose Rock, Paper or Scissors: ").toLowerCase();
+        } while(!(playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors"));
+        // Call singleRound function 
+        console.log(singleRound(playerSelection, computerPlay()));
 
+    }
 }
+
+// Call game function 
+game();
